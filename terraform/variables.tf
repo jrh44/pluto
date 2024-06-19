@@ -1,5 +1,5 @@
 variable "project_id" {
-  default = "REPLACEWITHPROJECTID"
+  default = "roimb-devopsuser7-prod"
   type    = string
 }
 
@@ -49,6 +49,7 @@ variable "service_list" {
       "iam.googleapis.com",
       "pubsub.googleapis.com",
       "sourcerepo.googleapis.com",
+      "composer.googleapis.com",
     ]
 }
 

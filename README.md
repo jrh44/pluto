@@ -3,8 +3,8 @@ Project Logistics, UTilization and Operations (PLUTO)
  
 ## Clone in the Repo
 Open Cloud Shell\
-Clone in the `https://github.com/ROIGCP/PLUTO` repo\
-    Command: `git clone https://github.com/ROIGCP/PLUTO`\
+Clone in the `https://github.com/jrh44/PLUTO` repo\
+    Command: `git clone https://github.com/jrh44/PLUTO`\
     Command: `cd PLUTO`
 
 ## PLUTO dependancies

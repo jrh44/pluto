@@ -38,11 +38,6 @@ resource "google_project_iam_member" "logwriter" {
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
 
-resource "google_project_iam_member" "createOnPushWrite" {
-  project = var.project_id
-  role    = "roles/artifactregistry.createOnPushWrite"
-  member  = "serviceAccount:${google_service_account.service_account.email}"
-}
 
 resource "google_project_iam_member" "objectAdmin" {
   project = var.project_id
@@ -81,11 +76,6 @@ resource "google_project_iam_member" "cloudbuild_logwriter" {
   member  = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
 }
 
-resource "google_project_iam_member" "cloudbuild_createOnPushWrite" {
-  project = var.project_id
-  role    = "roles/artifactregistry.createOnPushWrite"
-  member  = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
-}
 
 resource "google_project_iam_member" "cloudbuild_objectAdmin" {
   project = var.project_id

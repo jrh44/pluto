@@ -29,7 +29,7 @@ resource "google_cloudfunctions_function" "function" {
   #  url = "https://github.com/jrh44/pluto/tree/main/cloudfunction"
   #}
   source_archive_bucket = google_storage_bucket.pluto_source.name
-  source_archive_object = google_storage_bucket_object.function_zip.name
+  source_archive_object = "function_source.zip"
   entry_point       = "pubsub_to_bigquery"
   timeout = 60
   event_trigger {

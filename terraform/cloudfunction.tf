@@ -1,14 +1,15 @@
 resource "null_resource" "fetch_and_zip_source" {
   provisioner "local-exec" {
-    command = <<-EOT
-      mkdir -p /tmp/function_source
-      curl -L -o /tmp/main.zip "https://github.com/${var.github_username}/${var.repo_name}/archive/refs/heads/main.zip"
-      unzip /tmp/main.zip -d /tmp/function_source
-      cd /tmp/function_source/cloudfunction
-      zip -r /tmp/function_source.zip .
-      gsutil cp /tmp/function_source.zip "gs://${google_storage_bucket.pluto_source.name}/function_source.zip"
-    EOT
-    interpreter = ["/bin/sh" ,"-c"]
+    command = "bash -c 'mkdir -p /tmp/function_source && curl -L -o /tmp/main.zip https://github.com/${var.github_username}/${var.repo_name}/archive/refs/heads/main.zip && unzip /tmp/main.zip -d /tmp/function_source && cd /tmp/function_source/pluto-main/cloudfunction && zip -r /tmp/function_source.zip . && gsutil cp /tmp/function_source.zip gs://${google_storage_bucket.pluto_source.name}/function_source.zip'"
+    #command = <<-EOT
+    #  mkdir -p /tmp/function_source
+    #  curl -L -o /tmp/main.zip "https://github.com/${var.github_username}/${var.repo_name}/archive/refs/heads/main.zip"
+    #  unzip /tmp/main.zip -d /tmp/function_source
+     # cd /tmp/function_source/pluto-main/cloudfunction
+     # zip -r /tmp/function_source.zip .
+      #gsutil cp /tmp/function_source.zip "gs://${google_storage_bucket.pluto_source.name}/function_source.zip"
+    #EOT
+   # interpreter = ["/bin/sh" ,"-c"]
   }
 }
 

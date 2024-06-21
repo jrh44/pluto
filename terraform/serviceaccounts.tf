@@ -35,23 +35,23 @@ resource "google_project_iam_member" "editor" {
 resource "google_project_iam_member" "cloudbuild_service_account_user" {
   project = var.project_id
   role    = "roles/iam.serviceAccountUser"
-  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-cloudasset.iam.gserviceaccount.com"
+  member  = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cloudbuild_cloudfunctions_developer" {
   project = var.project_id
   role    = "roles/cloudfunctions.developer"
-  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-cloudasset.iam.gserviceaccount.com"
+  member  = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cloudbuild_storage_admin" {
   project = var.project_id
   role    = "roles/storage.admin"
-  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-cloudasset.iam.gserviceaccount.com"
+  member  = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
 }
 
 resource "google_project_iam_member" "cloudbuild_editor" {
   project = var.project_id
   role    = "roles/cloudbuild.builds.editor"
-  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-cloudasset.iam.gserviceaccount.com"
+  member  = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
 }

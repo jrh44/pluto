@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - pubsubtobq
+  - --region=us-central1
+  - --source=cloudfunction
+  - --trigger-http
+  - --runtime=RUNTIME

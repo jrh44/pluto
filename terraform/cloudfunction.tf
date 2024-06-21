@@ -36,5 +36,5 @@ resource "google_cloudfunctions_function" "function" {
     resource   = google_pubsub_topic.topic.name
     event_type = "google.pubsub.topic.publish"
   }
-  depends_on = [google_pubsub_topic.topic,null_resource.fetch_and_zip_source]
+  depends_on = [google_pubsub_topic.topic,null_resource.fetch_and_zip_source,google_storage_bucket_object.function_zip]
 }

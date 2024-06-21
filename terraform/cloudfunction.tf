@@ -13,6 +13,15 @@ resource "null_resource" "fetch_and_zip_source" {
   }
 }
 
+#resource "null_resource" "set_cloud_build_service_account" {
+#  provisioner "local-exec" {
+#    command = <<-EOF
+#      gcloud projects add-iam-policy-binding ${var.project_id} \
+#        --member=serviceAccount:${google_service_account.service_account.email} \
+#        --role=roles/cloudbuild.builds.editor
+#    EOF
+#  }
+
 #resource "google_storage_bucket_object" "function_zip" {
 #  name   = "function_source.zip"
 #  bucket = google_storage_bucket.pluto_source.name
@@ -39,3 +48,4 @@ resource "google_cloudfunctions_function" "function" {
   }
   depends_on = [google_pubsub_topic.topic,null_resource.fetch_and_zip_source]
 }
+

@@ -60,7 +60,7 @@ variable "default_service_list" {
       "bigquerymigration.googleapis.com",
       "bigquerystorage.googleapis.com",
       "cloudapis.googleapis.com",
-      "clouddebugger.googleapis.com",
+      #"clouddebugger.googleapis.com",
       "cloudtrace.googleapis.com",
       "logging.googleapis.com",
       "monitoring.googleapis.com",

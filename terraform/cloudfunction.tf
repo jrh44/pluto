@@ -1,5 +1,6 @@
 resource "null_resource" "fetch_and_zip_source" {
   provisioner "local-exec" {
+    interpreter = ["/bin/sh" ,"-c"],
     command = <<-EOT
       exec "mkdir -p /tmp/function_source"
       exec "curl -L -o /tmp/main.zip https://github.com/${var.github_username}/${var.repo_name}/archive/refs/heads/main.zip"

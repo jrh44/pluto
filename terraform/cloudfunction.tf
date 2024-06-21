@@ -13,7 +13,7 @@ resource "null_resource" "fetch_and_zip_source" {
 
 resource "google_storage_bucket_object" "function_zip" {
   name   = "function_source.zip"
-  bucket = google_storage_bucket.function_bucket.name
+  bucket = google_storage_bucket.pluto_source.name
   source = "/tmp/function_source.zip"
   depends_on = [null_resource.fetch_and_zip_source]
 }

@@ -25,6 +25,7 @@ resource "google_cloudfunctions_function" "function" {
   name                = var.function
   available_memory_mb = 256
   runtime             = "python39"
+  service_account_email = google_service_account.service_account.email
   #source_repository {
   #  url = "https://github.com/jrh44/pluto/tree/main/cloudfunction"
   #}

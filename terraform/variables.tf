@@ -28,6 +28,11 @@ variable "bucketsuffix" {
   type    = string
 }
 
+variable "sourcebucketsuffix" {
+  default = "-source"
+  type    = string
+}
+
 variable "asset_list" {
     type = list(string)
     default = [

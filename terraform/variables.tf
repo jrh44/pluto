@@ -33,7 +33,7 @@ variable "sourcebucketsuffix" {
   type    = string
 }
 
-vartiable "github_username" {
+variable "github_username" {
   default = "jrh44"
   type = string
 }

@@ -33,6 +33,16 @@ variable "sourcebucketsuffix" {
   type    = string
 }
 
+vartiable "github_username" {
+  default = "jrh44"
+  type = string
+}
+
+variable "repo_name" {
+  default = "pluto"
+  type = string
+}
+
 variable "asset_list" {
     type = list(string)
     default = [

@@ -26,8 +26,7 @@ resource "google_project_iam_member" "cloudbuild_storage_admin" {
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
 
-
-resource "google_project_iam_member" "cloudbuild_storage_admin" {
+resource "google_project_iam_member" "cloudbuild_editor" {
   project = var.project_id
   role    = "roles/cloudbuild.builds.editor"
   member  = "serviceAccount:${google_service_account.service_account.id}"

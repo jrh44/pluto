@@ -34,7 +34,7 @@ resource "google_cloudbuild_trigger" "trigger" {
       ]
     }
     options {
-      logging: CLOUD_LOGGING_ONLY
+      logging = CLOUD_LOGGING_ONLY
     }
     timeout = "1200s"
   }

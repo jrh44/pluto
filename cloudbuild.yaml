@@ -1,11 +1,13 @@
 steps:
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  args:
-  - gcloud
-  - functions
-  - deploy
-  - pubsubtobq
-  - --region=us-central1
-  - --source=cloudfunction
-  - --trigger-http
-  - --runtime=python39
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    args:
+      - functions
+      - deploy
+      - pubsubtobq
+      - '--runtime=python39'
+      - '--trigger-http'
+      - '--source=pluto/cloudfunction'
+      - '--entry-point=pubsub_to_bigquery'
+      - '--region=us-central1'
+options:
+  logging: CLOUD_LOGGING_ONLY

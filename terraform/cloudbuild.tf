@@ -1,7 +1,9 @@
 resource "google_cloudbuildv2_connection" "my-connection" {
   location = "us-central1"
   name = "my-terraform-github-connection"
-
+  github_config {
+    
+  }
 }
 
 resource "google_cloudbuildv2_repository" "my-repository" {

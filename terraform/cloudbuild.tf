@@ -1,3 +1,9 @@
+resource "google_cloudbuildv2_connection" "my-connection" {
+  location = "us-central1"
+  name = "my-terraform-github-connection"
+
+}
+
 resource "google_cloudbuildv2_repository" "my-repository" {
   name = "my-repo"
   parent_connection = google_cloudbuildv2_connection.my-connection.id

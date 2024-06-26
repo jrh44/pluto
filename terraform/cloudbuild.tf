@@ -17,7 +17,7 @@ resource "google_cloudbuild_trigger" "trigger" {
 
   build {
     step {
-      name = "gcr.io/cloud-builders/gcloud"
+      name = "gcr.io/google.com/cloudsdktool/cloud-sdk"
       args = [
         "functions",
         "deploy",
@@ -32,6 +32,9 @@ resource "google_cloudbuild_trigger" "trigger" {
         "--region",
         "us-central1"
       ]
+    }
+    options {
+      logging: CLOUD_LOGGING_ONLY
     }
     timeout = "1200s"
   }

@@ -29,23 +29,31 @@ resource "null_resource" "fetch_and_zip_source" {
 ##  depends_on = [null_resource.fetch_and_zip_source]
 ##}
 
-resource "google_cloudfunctions_function" "function" {      
+resource "google_cloudfunctions2_function" "function" {      
   project             = var.project_id
   name                = var.function
-  available_memory_mb = 256
-  runtime             = "python39"
-  service_account_email = google_service_account.service_account.email
-#  #source_repository {
-#  #  url = "https://github.com/jrh44/pluto/tree/main/cloudfunction"
-#  #}
-  source_archive_bucket = google_storage_bucket.pluto_source.name
-  source_archive_object = "function_source.zip"
-  entry_point       = "pubsub_to_bigquery"
-  timeout = 60
-  event_trigger {
-    resource   = google_pubsub_topic.topic.name
-    event_type = "google.pubsub.topic.publish"
+  location            = "us-central2"
+  build_config {
+    runtime           = "python39"
+    entry_point       = "pubsub_to_bigquery"
+    service_account   = google_service_account.service_account.email
+    source{
+        storage_source {
+            bucket = google_storage_bucket.pluto_source.name
+            object = google_storage_bucket_object.source_archive.name
+        }
+    }
   }
+  service_config {
+      available_memory = "256M"
+      timeout_seconds = 60
+  } 
+
+event_trigger {
+        pubsub_topic   = google_pubsub_topic.topic.name
+        event_type = "google.cloud.pubsub.topic.v1.messagePublished"
+}
+
   depends_on = [google_pubsub_topic.topic,null_resource.fetch_and_zip_source]
 }
 

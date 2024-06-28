@@ -36,7 +36,7 @@ resource "google_cloudfunctions2_function" "function" {
   build_config {
     runtime           = "python39"
     entry_point       = "pubsub_to_bigquery"
-    service_account   = google_service_account.service_account.email
+    service_account   = google_service_account.service_account.id
     source{
         storage_source {
             bucket = google_storage_bucket.pluto_source.name

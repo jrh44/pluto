@@ -82,6 +82,7 @@ variable "default_service_list" {
       "cloudapis.googleapis.com",
       #"clouddebugger.googleapis.com",
       "cloudtrace.googleapis.com",
+      "eventarc.googleapis.com",
       "logging.googleapis.com",
       "monitoring.googleapis.com",
       "servicemanagement.googleapis.com",

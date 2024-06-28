@@ -32,7 +32,7 @@ resource "null_resource" "fetch_and_zip_source" {
 resource "google_cloudfunctions2_function" "function" {      
   project             = var.project_id
   name                = var.function
-  location            = "us-central2"
+  location            = "us-central1"
   build_config {
     runtime           = "python39"
     entry_point       = "pubsub_to_bigquery"

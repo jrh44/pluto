@@ -16,4 +16,5 @@ resource "google_storage_bucket_object" "source_archive" {
   name   = "function_source.zip"
   bucket = google_storage_bucket.pluto_source.name
   source = "function_source.zip"
+  depends_on = [ null_resource.fetch_and_zip_source ]
 }

@@ -47,11 +47,13 @@ resource "google_cloudfunctions2_function" "function" {
   service_config {
       available_memory = "256M"
       timeout_seconds = 60
+      service_account_email   = google_service_account.service_account.email
   } 
 
 event_trigger {
         pubsub_topic   = google_pubsub_topic.topic.name
         event_type = "google.cloud.pubsub.topic.v1.messagePublished"
+        service_account_email =     google_service_account.service_account.email
 }
 
   depends_on = [google_pubsub_topic.topic,null_resource.fetch_and_zip_source]

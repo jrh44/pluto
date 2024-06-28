@@ -3,6 +3,11 @@ variable "project_id" {
   type    = string
 }
 
+variable "project_number" {
+  default="151122807805"
+  type=string
+}
+
 variable "region" {
   default = "us-central1"
   type    = string

@@ -51,7 +51,8 @@ resource "google_cloudfunctions2_function" "function" {
   } 
 
 event_trigger {
-        pubsub_topic   = google_pubsub_topic.topic.name
+        trigger_region = "us-central1"
+        pubsub_topic   = google_pubsub_topic.topic.id
         event_type = "google.cloud.pubsub.topic.v1.messagePublished"
         service_account_email =     google_service_account.service_account.email
 }

@@ -85,6 +85,7 @@ variable "default_service_list" {
       "eventarc.googleapis.com",
       "logging.googleapis.com",
       "monitoring.googleapis.com",
+      "run.googleapis.com",
       "servicemanagement.googleapis.com",
       "serviceusage.googleapis.com",
       "sql-component.googleapis.com",

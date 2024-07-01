@@ -34,7 +34,7 @@ resource "google_cloudbuild_trigger" "trigger" {
         "python39",
         "--trigger-http",
         "--source",
-        "pluto/cloudfunction",
+        "cloudfunction/",
         "--entry-point",
         "pubsub_to_bigquery",
         "--region",

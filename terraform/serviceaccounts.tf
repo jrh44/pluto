@@ -45,6 +45,12 @@ resource "google_project_iam_member" "objectAdmin" {
   member  = "serviceAccount:${google_service_account.service_account.email}"
 }
 
+resource "google_project_iam_member" "artifactWriter" {
+  project = var.project_id
+  role    = "roles/artifactregistry.createOnPushWriter"
+  member  = "serviceAccount:${google_service_account.service_account.email}"
+}
+
 
 #resource "google_project_iam_member" "cloudbuild_service_account_user" {
 #  project = var.project_id
